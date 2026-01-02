@@ -9,82 +9,90 @@ public class AudioManager : MonoBehaviour
     public Sprite backgroundMusicToggleSpriteOff;
     public Sprite backgroundMusicToggleSpriteOn;
     public Button backgroundMusicToggle;
+
     private AudioSource _backgroundMusic;
     private bool _isBackgroundMusicOn = true;
+
     public AudioSource coinSound;
     public AudioSource refuelSound;
+
     private bool _isSfxOn = true;
+
     public CrashSoundsOnOverlap crashSoundsOnOverlap;
     public CarMovement carMovement;
 
-    /// <summary>
-    /// Initializes the AudioManager component by retrieving the AudioSource component attached to the same GameObject.
-    /// This method is called when the script instance is being loaded.
-    /// </summary>
+    // NEW: muzyka wygranej
+    [Header("Win Music")]
+    public AudioClip winMusic;          // podepnij w Inspectorze
+    private AudioClip _gameMusicClip;   // zapamiêtamy clip poziomu, ¿eby wracaæ po restarcie/menu
+
     private void Start()
     {
         _backgroundMusic = GetComponent<AudioSource>();
+
+        // NEW: zapamiêtaj aktualny clip jako "muzyka gry"
+        _gameMusicClip = _backgroundMusic.clip;
     }
 
-    /// <summary>
-    /// Toggles the state of the background music between playing and paused.
-    /// </summary>
-    /// <remarks>
-    /// This method checks the current state of the background music. If it is playing, the music will be paused,
-    /// and the toggle button's sprite will change to indicate the music is off. Conversely, if the music is paused,
-    /// it will start playing, and the toggle button's sprite will change to indicate the music is on.
-    /// </remarks>
     public void ToggleBackgroundMusic()
     {
-        // Check if the background music is currently on.
         if (_isBackgroundMusicOn)
         {
-            // Pause the music and update the toggle button to show the 'off' sprite.
             _backgroundMusic.Pause();
             backgroundMusicToggle.image.sprite = backgroundMusicToggleSpriteOff;
         }
         else
         {
-            // Play the music and update the toggle button to show the 'on' sprite.
             _backgroundMusic.Play();
             backgroundMusicToggle.image.sprite = backgroundMusicToggleSpriteOn;
         }
 
-        // Invert the state of the background music.
         _isBackgroundMusicOn = !_isBackgroundMusicOn;
     }
 
-    /// <summary>
-    /// Played when the player touches any coin collectible.
-    /// </summary>
+    // NEW: w³¹cz muzykê wygranej (po mecie)
+    public void PlayWinMusic()
+    {
+        if (winMusic == null) return;
+
+        _backgroundMusic.Stop();
+        _backgroundMusic.clip = winMusic;
+        _backgroundMusic.loop = true;
+
+        // jeœli muzyka jest "w³¹czona", graj; jeœli wy³¹czona, nie odpalaj
+        if (_isBackgroundMusicOn)
+            _backgroundMusic.Play();
+    }
+
+    // NEW: wróæ do muzyki gry (przy restart/menu jeœli chcesz)
+    public void PlayGameMusic()
+    {
+        if (_gameMusicClip == null) return;
+
+        _backgroundMusic.Stop();
+        _backgroundMusic.clip = _gameMusicClip;
+        _backgroundMusic.loop = true;
+
+        if (_isBackgroundMusicOn)
+            _backgroundMusic.Play();
+    }
+
     public void PlayOneShotCoinSound()
     {
         if (_isSfxOn)
-        {
             coinSound.PlayOneShot(coinSound.clip);
-        }
     }
 
-    /// <summary>
-    /// Played when the player touches a refuel collectible.
-    /// </summary>
     public void PlayOneShotRefuel()
     {
         if (_isSfxOn)
-        {
             refuelSound.PlayOneShot(refuelSound.clip);
-        }
     }
 
-    /// <summary>
-    /// Toggles the state of all sound effects between playing and paused.
-    /// </summary>
     public void ToggleAllSfx()
     {
-
         if (_isSfxOn)
         {
-            // Mute all sound effects
             coinSound.volume = 0;
             refuelSound.volume = 0;
             crashSoundsOnOverlap.crashSound1.volume = 0;
@@ -96,7 +104,6 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            // Unmute all sound effects
             coinSound.volume = 1;
             refuelSound.volume = 1;
             crashSoundsOnOverlap.crashSound1.volume = 1;
@@ -107,7 +114,7 @@ public class AudioManager : MonoBehaviour
             carMovement.goofyCarHorn.volume = 1;
         }
 
-        // Toggle the sound effects state
         _isSfxOn = !_isSfxOn;
     }
 }
+
