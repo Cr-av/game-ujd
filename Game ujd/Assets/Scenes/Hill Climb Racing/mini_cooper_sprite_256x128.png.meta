@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0bb7d570bd89594caf8e6b6a3f49622
+guid: 5465dad9c0952784e80ade2273a657b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2296923504221533381
-    second: Butoon Wyjdz_0
+      213: 5085577487473105325
+    second: mini_cooper_sprite_256x128_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Butoon Wyjdz_0
+      name: mini_cooper_sprite_256x128_0
       rect:
         serializedVersion: 2
-        x: 208
-        y: 397
-        width: 1122
-        height: 325
+        x: 47
+        y: 30
+        width: 166
+        height: 69
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 323}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3b41a61e30bf10e0800000000000000
-      internalID: -2296923504221533381
+      spriteID: da9de82c7c9939640800000000000000
+      internalID: 5085577487473105325
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Butoon Wyjdz_0: -2296923504221533381
+      mini_cooper_sprite_256x128_0: 5085577487473105325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

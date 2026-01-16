@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0bb7d570bd89594caf8e6b6a3f49622
+guid: b05e348a53ca0084fabe707b13facf56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2296923504221533381
-    second: Butoon Wyjdz_0
+      213: 4392903025308766730
+    second: car4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Butoon Wyjdz_0
+      name: car4_0
       rect:
         serializedVersion: 2
-        x: 208
-        y: 397
-        width: 1122
-        height: 325
+        x: 11
+        y: 0
+        width: 1525
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 323}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3b41a61e30bf10e0800000000000000
-      internalID: -2296923504221533381
+      spriteID: a029444e60ab6fc30800000000000000
+      internalID: 4392903025308766730
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Butoon Wyjdz_0: -2296923504221533381
+      car4_0: 4392903025308766730
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
